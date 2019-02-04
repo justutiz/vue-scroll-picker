@@ -28,9 +28,7 @@
     </div>
 </template>
 <script>
-
     const isTouchable = typeof window !== 'undefined' && 'ontouchstart' in window;
-    
     export default {
         props: {
             value: null,
@@ -140,7 +138,7 @@
 
                 if (this.isScrolling) return;
                 this.isScrolling = true;
-                
+
                 if (e.deltaY < 0) {
                     this.correction(this.lastIndex - Math.floor(Math.abs(e.deltaY) / 30 + 1));
                 } else if (e.deltaY > 0) {
@@ -148,7 +146,7 @@
                 }
                 setTimeout(function () {
                     this.isScrolling = false;
-                }.bind(this), 80);
+                }.bind(this), 200);
             },
             getTouchInfo (e) {
                 return isTouchable ? e.changedTouches[0] || e.touches[0] : e;
@@ -175,7 +173,7 @@
                     if (Math.abs(diff) > 1.5) {
                         this.isDragging = true;
                     }
-                    this.top = this.startTop + diff * 1.7;
+                    this.top = this.startTop + diff * 1;
                 }
             },
             handleEnd(e) {
@@ -239,7 +237,7 @@
                     }
                     this.$emit('input', value);
                 }
-                var top = 0; 
+                var top = 0;
                 if (index > -1) {
                     top = this.pivots[index] * (-1);
                 }
