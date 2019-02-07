@@ -227,7 +227,7 @@
                 }
             }, methods: {
                 handleWheel: function (e) {
-                    this.top >= 0 && e.deltaY < 0 || this.top <= this.scrollMax && e.deltaY > 0 || (e.preventDefault(), e.stopPropagation(), this.isScrolling || (this.isScrolling = !0, e.deltaY < 0 ? this.correction(this.lastIndex - Math.floor(Math.abs(e.deltaY) / 300 + 1)) : e.deltaY > 0 && this.correction(this.lastIndex + Math.floor(Math.abs(e.deltaY) / 300 + 1)), setTimeout(function () {
+                    this.top >= 0 && e.deltaY < 0 || this.top <= this.scrollMax && e.deltaY > 0 || (e.preventDefault(), e.stopPropagation(), this.isScrolling || (this.isScrolling = !0, e.deltaY < 0 ? this.correction(this.lastIndex - Math.floor(Math.abs(e.deltaY) / 1000 + 1)) : e.deltaY > 0 && this.correction(this.lastIndex + Math.floor(Math.abs(e.deltaY) / 1000 + 1)), setTimeout(function () {
                         this.isScrolling = !1
                     }.bind(this), 200)))
                 }, getTouchInfo: function (e) {
